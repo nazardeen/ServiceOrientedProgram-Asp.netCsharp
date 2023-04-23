@@ -1,0 +1,127 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="SOCCHD.Main" %>
+
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> SaberSilk </title>
+    <link rel="stylesheet" href="style.css">
+      
+
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+       <style type="text/css">
+        #form1 {
+            height: 476px;
+            width: 714px;
+            margin-left: 0px;
+            margin-top: 4px;
+        }
+        .auto-style1 {
+            text-align: center;
+            height: 23px;
+        }
+        .auto-style2 {
+            width: 77%;
+            height: 216px;
+            margin-left: 86px;
+        }
+        .auto-style3 {
+            width: 274px;
+            text-align: left;
+        }
+        .auto-style4 {
+            width: 76%;
+            margin-left: 89px;
+        }
+        .auto-style5 {
+            width: 175px;
+            text-align: center;
+        }
+        .auto-style6 {
+            width: 162px;
+            text-align: center;
+        }
+        .auto-style7 {
+            width: 162px;
+            height: 34px;
+        }
+        .auto-style8 {
+            width: 175px;
+            height: 34px;
+        }
+        .auto-style9 {
+            height: 34px;
+        }
+        .auto-style10 {
+            text-align: center;
+        }
+        .auto-style11 {
+            height: 430px;
+            width: 723px;
+        }
+           .auto-style24 {
+               position: relative;
+               background: #E4E9F7;
+               min-height: 100vh;
+               top: 0;
+               left: 78px;
+               width: calc(100% - 78px);
+               transition: all 0.5s ease;
+               z-index: 2;
+               height: 1227px;
+           }
+    </style>
+
+
+   </head>
+<body>
+    
+  <div class="sidebar">
+    <div class="logo-details">
+      <i ></i>
+        <div class="logo_name">SaberSilk</div>
+        <i class='bx bx-menu' id="btn" ></i>
+    </div>
+    <ul class="nav-list">
+   
+      <li>
+        <a href="stockForm.aspx">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Stock</span>
+        </a>
+         <span class="tooltip">Stocks</span>
+      </li>
+   
+     
+     <li>
+       <a href="OrderProductForm.aspx">
+         <i class='bx bx-cart-alt' ></i>
+         <span class="links_name">Order</span>
+       </a>
+       <span class="tooltip">Order</span>
+     </li>
+    
+    </ul>
+  </div>
+  <section class="auto-style24">
+              <form id="form1" runat="server">
+
+    <div margin:4>
+        <asp:ContentPlaceHolder ID="Body" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+  </section>
+
+  <script src="script.js"></script>
+
+
+   
+ 
+</body>
+</html>

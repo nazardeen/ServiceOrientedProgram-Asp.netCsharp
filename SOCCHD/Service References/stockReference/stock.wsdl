@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="buyProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProductID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProductQuantity" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="buyProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="buyProductResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AutoID">
+        <s:complexType />
+      </s:element>
+      <s:element name="AutoIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AutoIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCategoryName">
+        <s:complexType />
+      </s:element>
+      <s:element name="getCategoryNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCategoryNameResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProductName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchProductResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchIDD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProductID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchIDDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchIDDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Availibility">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AvailibilityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AvailibilityResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCategoryID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="categoryName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCategoryIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCategoryIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="productID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productDes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="category" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="qty" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="price" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insertProductResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="buyProductSoapIn">
+    <wsdl:part name="parameters" element="tns:buyProduct" />
+  </wsdl:message>
+  <wsdl:message name="buyProductSoapOut">
+    <wsdl:part name="parameters" element="tns:buyProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="AutoIDSoapIn">
+    <wsdl:part name="parameters" element="tns:AutoID" />
+  </wsdl:message>
+  <wsdl:message name="AutoIDSoapOut">
+    <wsdl:part name="parameters" element="tns:AutoIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCategoryNameSoapIn">
+    <wsdl:part name="parameters" element="tns:getCategoryName" />
+  </wsdl:message>
+  <wsdl:message name="getCategoryNameSoapOut">
+    <wsdl:part name="parameters" element="tns:getCategoryNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchProductSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchProduct" />
+  </wsdl:message>
+  <wsdl:message name="SearchProductSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchIDDSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchIDD" />
+  </wsdl:message>
+  <wsdl:message name="SearchIDDSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchIDDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AvailibilitySoapIn">
+    <wsdl:part name="parameters" element="tns:Availibility" />
+  </wsdl:message>
+  <wsdl:message name="AvailibilitySoapOut">
+    <wsdl:part name="parameters" element="tns:AvailibilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCategoryIDSoapIn">
+    <wsdl:part name="parameters" element="tns:getCategoryID" />
+  </wsdl:message>
+  <wsdl:message name="getCategoryIDSoapOut">
+    <wsdl:part name="parameters" element="tns:getCategoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertProductSoapIn">
+    <wsdl:part name="parameters" element="tns:insertProduct" />
+  </wsdl:message>
+  <wsdl:message name="insertProductSoapOut">
+    <wsdl:part name="parameters" element="tns:insertProductResponse" />
+  </wsdl:message>
+  <wsdl:portType name="stockSoap">
+    <wsdl:operation name="buyProduct">
+      <wsdl:input message="tns:buyProductSoapIn" />
+      <wsdl:output message="tns:buyProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AutoID">
+      <wsdl:input message="tns:AutoIDSoapIn" />
+      <wsdl:output message="tns:AutoIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategoryName">
+      <wsdl:input message="tns:getCategoryNameSoapIn" />
+      <wsdl:output message="tns:getCategoryNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchProduct">
+      <wsdl:input message="tns:SearchProductSoapIn" />
+      <wsdl:output message="tns:SearchProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchIDD">
+      <wsdl:input message="tns:SearchIDDSoapIn" />
+      <wsdl:output message="tns:SearchIDDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Availibility">
+      <wsdl:input message="tns:AvailibilitySoapIn" />
+      <wsdl:output message="tns:AvailibilitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategoryID">
+      <wsdl:input message="tns:getCategoryIDSoapIn" />
+      <wsdl:output message="tns:getCategoryIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertProduct">
+      <wsdl:input message="tns:insertProductSoapIn" />
+      <wsdl:output message="tns:insertProductSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="stockSoap" type="tns:stockSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="buyProduct">
+      <soap:operation soapAction="http://tempuri.org/buyProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutoID">
+      <soap:operation soapAction="http://tempuri.org/AutoID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategoryName">
+      <soap:operation soapAction="http://tempuri.org/getCategoryName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchProduct">
+      <soap:operation soapAction="http://tempuri.org/SearchProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchIDD">
+      <soap:operation soapAction="http://tempuri.org/SearchIDD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Availibility">
+      <soap:operation soapAction="http://tempuri.org/Availibility" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategoryID">
+      <soap:operation soapAction="http://tempuri.org/getCategoryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertProduct">
+      <soap:operation soapAction="http://tempuri.org/insertProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="stockSoap12" type="tns:stockSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="buyProduct">
+      <soap12:operation soapAction="http://tempuri.org/buyProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutoID">
+      <soap12:operation soapAction="http://tempuri.org/AutoID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategoryName">
+      <soap12:operation soapAction="http://tempuri.org/getCategoryName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchProduct">
+      <soap12:operation soapAction="http://tempuri.org/SearchProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchIDD">
+      <soap12:operation soapAction="http://tempuri.org/SearchIDD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Availibility">
+      <soap12:operation soapAction="http://tempuri.org/Availibility" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategoryID">
+      <soap12:operation soapAction="http://tempuri.org/getCategoryID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertProduct">
+      <soap12:operation soapAction="http://tempuri.org/insertProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="stock">
+    <wsdl:port name="stockSoap" binding="tns:stockSoap">
+      <soap:address location="http://localhost:59725/stock.asmx" />
+    </wsdl:port>
+    <wsdl:port name="stockSoap12" binding="tns:stockSoap12">
+      <soap12:address location="http://localhost:59725/stock.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
